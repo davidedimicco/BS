@@ -49,7 +49,7 @@ possible_p = parameter_estimator(data,T,N)
 print("The estimated value for p is", possible_p)
 
 # We can use this value to run simulations with same p, T and N to see if the results match the input data
-experiment=simulate_users(possible_p,T,N)
+experiment=users_simulator(possible_p,T,N)
 
 plt.bar(np.arange(len(data)),data)
 plt.title('Input data')
@@ -59,4 +59,4 @@ plt.bar(np.arange(len(experiment)),experiment)
 plt.title('Simulation Output')
 plt.show()
 
-print("One can clearly see that the number of unsubscriptions in the simulation decreases linearly with time, whereas in the given input data, this is not the case (in particular the behaviour resembles an exponential profile). This probably means that the assumption that the number of unsubscriptions can be described via the previous distribution is wrong, because even by choosing the best value for p, the results are quite different from what we should expect.")
+# One can clearly see that the number of unsubscriptions in the simulation decreases linearly with time, whereas in the given input data, this is not the case (in particular the behaviour resembles an exponential profile). This probably means that the assumption that the number of unsubscriptions can be described via the previous distribution is wrong, because even by choosing the best value for p, the results are quite different from what we should expect.
