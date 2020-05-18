@@ -59,4 +59,14 @@ plt.bar(np.arange(len(experiment)),experiment)
 plt.title('Simulation Output')
 plt.show()
 
-# One can clearly see that the number of unsubscriptions in the simulation decreases linearly with time, whereas in the given input data, this is not the case (in particular the behaviour resembles an exponential profile). This probably means that the assumption that the number of unsubscriptions can be described via the previous distribution is wrong, because even by choosing the best value for p, the results are quite different from what we should expect.
+# To be more confident about the result we can run multiple simulations and compare the input data with the average output
+avg_results=np.zeros(T+1)
+for i in range(1000):
+    avg_results+=users_simulator(possible_p,T,N)
+avg_results/=1000
+    
+plt.bar(np.arange(len(avg_results)),avg_results)
+plt.title('Average of 1000 Simulation Outputs')
+plt.show()
+
+# One can clearly see that the number of new unsubscriptions in the simulation decreases almost linearly with time, whereas in the given input data, this is not the case (in particular the behaviour resembles an exponential profile). This probably means that the assumption that the number of unsubscriptions can be described via the previous distribution is wrong, because even by choosing the best value for p, the results are quite different from what we should expect.
